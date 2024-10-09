@@ -1,31 +1,40 @@
 #include <stdio.h>
+#include <math.h>
 int main()
 {
-    int a,b;
+    double a,b;
     char o='+';
     while(o=='+' || o=='-' || o=='*' || o=='/' || o=='%')
     {
         printf("Enter 2 numbers with operator(+,-,*,/,%): ");
-        scanf("%d%c%d",&a,&o,&b);
+        scanf("%lf%c%lf",&a,&o,&b);
         switch(o)
         {
             case '+':
-                printf("ADDITION: %d\n",a+b);
+                printf("ADDITION: %.2f\n",a+b);
                 break;
             case '-':
-                printf("SUBTRACTION: %d\n",a-b);
+                printf("SUBTRACTION: %.2f\n",a-b);
                 break;
             case '*':
-                printf("MULTIPLICATION: %d\n",a*b);
+                printf("MULTIPLICATION: %.2f\n",a*b);
                 break;
             case '/':
-                printf("DIVISION: %d\n",a/b);
+                if(b!=0)
+                {
+                    printf("DIVISION: %.2f\n",a/b);
+                }
+                else
+                {
+                    printf("Cannot be divided by Zero");
+                }
                 break;
             case '%':
-                printf("MODULUS: %d\n",a%b);
+                printf("MODULUS: %.2f\n",fmod(a,b));
                 break;
             default:
                 printf("Invalid Input");
+                break;
         }
     }
     return 0;
